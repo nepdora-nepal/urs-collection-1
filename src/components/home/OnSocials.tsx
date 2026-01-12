@@ -3,6 +3,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import ImageWithFallback from '@/components/common/ImageWithFallback';
 
 const SOCIAL_IMAGES = [
     'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&q=80&w=400',
@@ -44,8 +45,11 @@ export const OnSocials: React.FC = () => {
                 >
                     {[...SOCIAL_IMAGES, ...SOCIAL_IMAGES].map((img, idx) => (
                         <div key={idx} className="w-[300px] aspect-[4/5] flex-shrink-0 bg-neutral-100 overflow-hidden relative group/img">
-                            <img
+                            <ImageWithFallback
+                                id={`social-${idx}`}
                                 src={img}
+                                fallbackSrc={img}
+                                fill
                                 className="w-full h-full object-cover grayscale-[0.3] group-hover/img:grayscale-0 transition-all duration-700"
                                 alt="Social"
                             />

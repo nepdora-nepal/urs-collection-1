@@ -5,8 +5,8 @@ import { useCart } from '@/hooks/use-cart';
 import { useCreateOrder } from '@/hooks/use-orders';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
-import Image from 'next/image';
-import { getImageUrl } from '@/config/site';
+import ImageWithFallback from '@/components/common/ImageWithFallback';
+import { images } from '@/services/image-loader';
 import { ArrowLeft, Loader2, ChevronRight, ShieldCheck } from 'lucide-react';
 import Link from 'next/link';
 
@@ -217,8 +217,10 @@ const CheckoutPage: React.FC = () => {
                             {cartItems.map((item) => (
                                 <div key={`${item.product.id}-${item.selectedVariant?.id || 'none'}`} className="flex gap-4">
                                     <div className="relative w-16 h-20 bg-white rounded-sm overflow-hidden flex-shrink-0 border border-neutral-100">
-                                        <Image
-                                            src={getImageUrl(item.product.thumbnail_image || '')}
+                                        <ImageWithFallback
+                                            id={`checkout-item-${item.product.id}`}
+                                            src={item.product.thumbnail_image || images.category1}
+                                            fallbackSrc={images.category1}
                                             alt={item.product.name}
                                             fill
                                             className="object-contain p-2 mix-blend-multiply"

@@ -10,6 +10,8 @@ import { OnSocials } from '@/components/home/OnSocials';
 import { NewsletterModal } from '@/components/home/NewsletterModal';
 import { TestimonialSection } from '@/components/home/TestimonialSection';
 import Link from 'next/link';
+import ImageWithFallback from '@/components/common/ImageWithFallback';
+import { images } from '@/services/image-loader';
 
 const HomePage: React.FC = () => {
   return (
@@ -36,10 +38,13 @@ const HomePage: React.FC = () => {
           transition={{ duration: 2 }}
           className="absolute inset-0"
         >
-          <img
-            src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&q=80&w=2000"
+          <ImageWithFallback
+            id="featured_about"
+            src={images.about}
+            fallbackSrc={images.about}
             className="w-full h-full object-cover grayscale-[0.5]"
             alt="Featured Section"
+            fill
           />
         </motion.div>
         <div className="absolute inset-0 bg-black/40"></div>

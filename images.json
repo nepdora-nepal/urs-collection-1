@@ -1,4 +1,10 @@
 {
-    "hero": "/builder-1.png",
-    "about": "/esewa.png"
+    "hero": "/hero-image.png",
+    "about": "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&q=80&w=2000",
+    "category1": "https://images.unsplash.com/photo-1544441893-675973e34635?auto=format&fit=crop&q=80&w=800",
+    "category2": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=800",
+    "category3": "https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&q=80&w=800",
+    "category4": "https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&q=80&w=800",
+    "newsletter": "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&q=80&w=1200",
+    "testimonial": "/our-clients/panchanga-adhikari-hb-team.jpg"
 }

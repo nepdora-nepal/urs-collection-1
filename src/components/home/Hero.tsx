@@ -3,7 +3,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import Image from 'next/image';
+import ImageWithFallback from '@/components/common/ImageWithFallback';
+import { images } from '@/services/image-loader';
 
 export const Hero: React.FC = () => {
 
@@ -21,8 +22,10 @@ export const Hero: React.FC = () => {
                 transition={{ duration: 2, ease: "easeOut" }}
                 className="absolute inset-0 w-full h-full"
             >
-                <Image
-                    src="/hero-image.png"
+                <ImageWithFallback
+                    id="hero"
+                    src={images.hero}
+                    fallbackSrc={images.hero}
                     fill
                     className="object-cover"
                     alt="Luxury Fashion"

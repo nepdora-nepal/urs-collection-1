@@ -3,7 +3,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
+import ImageWithFallback from '@/components/common/ImageWithFallback';
+import { images } from '@/services/image-loader';
 
 const timeline = [
     { year: '1997', title: 'Where It Began', desc: 'What started as a small design studio grew from a shared fascination with form, material, and balance. Every early piece carried the idea that simplicity could feel profound.' },
@@ -31,10 +32,13 @@ const AboutPage: React.FC = () => {
                     transition={{ duration: 1.5 }}
                     className="w-full max-w-5xl mx-auto aspect-[16/8] bg-neutral-200 mb-20 overflow-hidden"
                 >
-                    <img
-                        src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=2000"
+                    <ImageWithFallback
+                        id="about_atelier"
+                        src={images.about}
+                        fallbackSrc={images.about}
                         alt="Atelier Detail"
                         className="w-full h-full object-cover grayscale"
+                        fill
                     />
                 </motion.div>
 

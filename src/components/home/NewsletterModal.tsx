@@ -6,6 +6,8 @@ import { X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCreateNewsletter } from '@/hooks/use-newsletter';
 import { toast } from 'sonner';
+import ImageWithFallback from '@/components/common/ImageWithFallback';
+import { images } from '@/services/image-loader';
 
 
 export const NewsletterModal: React.FC = () => {
@@ -60,8 +62,11 @@ export const NewsletterModal: React.FC = () => {
                     </button>
 
                     <div className="w-full md:w-1/2 aspect-[4/5] bg-neutral-200">
-                        <img
-                            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800"
+                        <ImageWithFallback
+                            id="newsletter"
+                            src={images.newsletter}
+                            fallbackSrc={images.newsletter}
+                            fill
                             className="w-full h-full object-cover"
                             alt="Welcome offer"
                         />
