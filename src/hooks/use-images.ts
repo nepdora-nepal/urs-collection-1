@@ -8,7 +8,7 @@ export function useImages() {
         queryFn: fetchImages,
     });
 }
-
+//eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function useUploadImage(onSuccess?: (data: any, variables: File) => void) {
     const queryClient = useQueryClient();
 

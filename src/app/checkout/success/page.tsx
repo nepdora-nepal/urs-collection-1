@@ -37,7 +37,7 @@ const SuccessContent = () => {
                 <h1 className="text-4xl md:text-5xl font-serif">Thank you for your order</h1>
                 <p className="text-neutral-500 leading-relaxed max-w-md mx-auto">
                     Your order <span className="text-black font-medium">#{orderId}</span> has been successfully placed.
-                    We've sent a confirmation email with all the details of your purchase.
+                    We&apos;ve sent a confirmation email with all the details of your purchase.
                 </p>
 
                 <div className="pt-10 flex flex-col sm:flex-row items-center justify-center gap-6">

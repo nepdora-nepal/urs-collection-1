@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 
 interface RecentBlogsSectionProps {
     currentBlogId?: number;
+    //eslint-disable-next-line @typescript-eslint/no-explicit-any
     recentBlogs?: any[];
     isLoading?: boolean;
 }

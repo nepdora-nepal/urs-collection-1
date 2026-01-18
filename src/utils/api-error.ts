@@ -56,7 +56,7 @@ export const handleApiError = async (response: Response): Promise<Response> => {
 
       const flattenedErrors = flattenErrors(fieldErrors);
       const errorMessages = Object.entries(flattenedErrors).map(
-        ([field, messages]) => `${field}: ${messages.join(", ")}`
+        ([field, messages]) => `${field}: ${messages.join(", ")}`,
       );
 
       if (errorMessages.length > 0) {
@@ -77,7 +77,7 @@ export const handleApiError = async (response: Response): Promise<Response> => {
 
       // Check if params contain field-level error messages (like email, etc.)
       const errorFields = Object.keys(fieldErrors).filter(
-        key => typeof fieldErrors[key] === "string"
+        (key) => typeof fieldErrors[key] === "string",
       );
 
       if (errorFields.length > 0) {
@@ -123,10 +123,9 @@ export const handleApiError = async (response: Response): Promise<Response> => {
 
 // File validation utility
 export const validateFile = (
-  file: File
+  file: File,
 ): { valid: boolean; error?: string } => {
   const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB in bytes
-  const MIN_FILE_SIZE = 1 * 1024 * 1024; // 1MB in bytes
   const ALLOWED_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
 
   if (file.size > MAX_FILE_SIZE) {

@@ -19,8 +19,8 @@ const NotFound: React.FC = () => {
                         Lost in <br /> <span className="italic font-normal">Silence</span>
                     </h1>
                     <p className="text-neutral-500 mb-12 font-light leading-relaxed tracking-wide">
-                        The collection or page you are looking for has been moved or doesn't exist.
-                        Let's guide you back to our timeless essentials.
+                        The collection or page you are looking for has been moved or doesn&apos;t exist.
+                        Let&apos;s guide you back to our timeless essentials.
                     </p>
                     <div className="flex flex-col md:flex-row items-center justify-center gap-6">
                         <Link href="/">

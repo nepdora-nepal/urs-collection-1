@@ -1,8 +1,6 @@
 import {
-  Template,
   PaginatedTemplates,
   TemplateFilters,
-  ImportTemplateRequest,
   ImportTemplateResponse,
 } from "@/types/template";
 import { siteConfig } from "@/config/site";

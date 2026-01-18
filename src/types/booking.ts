@@ -15,6 +15,7 @@ export interface BookingData {
   status?: "pending" | "confirmed" | "cancelled";
   "whatsapp number"?: string | number | null;
   "license image"?: string;
+  //eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any; // Allow for other dynamic fields
 }
 

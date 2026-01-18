@@ -27,7 +27,7 @@ interface ProductFilterParams extends Omit<PaginationParams, "category"> {
 }
 
 const buildProductFormData = (
-  data: CreateProductRequest | UpdateProductRequest
+  data: CreateProductRequest | UpdateProductRequest,
 ): FormData => {
   const formData = new FormData();
 
@@ -36,7 +36,7 @@ const buildProductFormData = (
 
     if (key === "image_files" && Array.isArray(value)) {
       let imageCount = 0;
-      value.forEach(imageFile => {
+      value.forEach((imageFile) => {
         if (imageFile instanceof File) {
           formData.append("image_files", imageFile);
           imageCount++;
@@ -87,22 +87,22 @@ const buildProductFormData = (
 
   // Debug log
   console.log("FormData contents:");
-  for (const [key, value] of formData.entries()) {
+  Array.from(formData.entries()).forEach(([key, value]) => {
     if (value instanceof File) {
       console.log(
-        `${key}: File(${value.name}, ${value.size} bytes, ${value.type})`
+        `${key}: File(${value.name}, ${value.size} bytes, ${value.type})`,
       );
     } else {
       console.log(`${key}: ${value}`);
     }
-  }
+  });
 
   return formData;
 };
 
 // Helper function to validate file sizes before sending
 const validateFiles = (
-  data: CreateProductRequest | UpdateProductRequest
+  data: CreateProductRequest | UpdateProductRequest,
 ): string[] => {
   const errors: string[] = [];
   const maxSize = 5 * 1024 * 1024; // 5MB
@@ -111,17 +111,18 @@ const validateFiles = (
   if (data.thumbnail_image instanceof File) {
     if (data.thumbnail_image.size > maxSize) {
       errors.push(
-        `Thumbnail image "${data.thumbnail_image.name}" is too large (${(data.thumbnail_image.size / 1024 / 1024).toFixed(2)}MB). Max size: 5MB`
+        `Thumbnail image "${data.thumbnail_image.name}" is too large (${(data.thumbnail_image.size / 1024 / 1024).toFixed(2)}MB). Max size: 5MB`,
       );
     }
   }
 
   // Check additional images
   if (Array.isArray(data.image_files)) {
+    //eslint-disable-next-line @typescript-eslint/no-explicit-any
     data.image_files.forEach((file: any, index: number) => {
       if (file instanceof File && file.size > maxSize) {
         errors.push(
-          `Image ${index + 1} "${file.name}" is too large (${(file.size / 1024 / 1024).toFixed(2)}MB). Max size: 5MB`
+          `Image ${index + 1} "${file.name}" is too large (${(file.size / 1024 / 1024).toFixed(2)}MB). Max size: 5MB`,
         );
       }
     });
@@ -132,7 +133,7 @@ const validateFiles = (
 
 export const productApi = {
   getProducts: async (
-    params: ProductFilterParams = {}
+    params: ProductFilterParams = {},
   ): Promise<GetProductsResponse> => {
     const {
       page = 1,
@@ -188,7 +189,7 @@ export const productApi = {
       {
         method: "GET",
         headers: createHeaders(),
-      }
+      },
     );
 
     await handleApiError(response);
@@ -225,7 +226,7 @@ export const productApi = {
   },
 
   createProduct: async (
-    data: CreateProductRequest
+    data: CreateProductRequest,
   ): Promise<CreateProductResponse> => {
     const API_BASE_URL = siteConfig.apiBaseUrl;
 
@@ -253,7 +254,7 @@ export const productApi = {
 
   updateProduct: async (
     slug: string,
-    data: UpdateProductRequest
+    data: UpdateProductRequest,
   ): Promise<UpdateProductResponse> => {
     const API_BASE_URL = siteConfig.apiBaseUrl;
 

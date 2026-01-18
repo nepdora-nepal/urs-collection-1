@@ -8,7 +8,6 @@ const API_BASE_URL = siteConfig.apiBaseUrl;
 
 const prepareFormData = (
   data: CreateBannerWithImagesRequest | UpdateBannerWithImagesRequest,
-  isUpdate: boolean = false
 ) => {
   const formData = new FormData();
 
@@ -76,7 +75,7 @@ export const bannerApi = {
   ): Promise<Banner> => {
     
 
-    const formData = prepareFormData(data, false);
+    const formData = prepareFormData(data);
 
     const response = await fetch(`${API_BASE_URL}/api/banners/`, {
       method: "POST",
@@ -105,7 +104,7 @@ export const bannerApi = {
   ): Promise<Banner> => {
     
 
-    const formData = prepareFormData(data, true);
+    const formData = prepareFormData(data);
 
     const response = await fetch(`${API_BASE_URL}/api/banners/${id}/`, {
       method: "PATCH",

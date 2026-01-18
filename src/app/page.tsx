@@ -6,7 +6,6 @@ import { motion } from 'framer-motion';
 import { Hero } from '@/components/home/Hero';
 import { CategoryGrid } from '@/components/home/CategoryGrid';
 import { ProductGrid } from '@/components/product/ProductGrid';
-import { OnSocials } from '@/components/home/OnSocials';
 import { NewsletterModal } from '@/components/home/NewsletterModal';
 import { TestimonialSection } from '@/components/home/TestimonialSection';
 import Link from 'next/link';
@@ -24,11 +23,13 @@ const HomePage: React.FC = () => {
       <Hero />
       <CategoryGrid />
 
-      <ProductGrid
-        title="Carried with Intention"
-        subtitle="Soft structures, precise form — bags designed to hold more than what you carry."
-        limit={6}
-      />
+      <React.Suspense fallback={<div className="h-96" />}>
+        <ProductGrid
+          title="Carried with Intention"
+          subtitle="Soft structures, precise form — bags designed to hold more than what you carry."
+          limit={6}
+        />
+      </React.Suspense>
 
       {/* Featured Collection Highlight */}
       <section className="h-screen relative overflow-hidden flex items-center justify-center">
@@ -72,10 +73,6 @@ const HomePage: React.FC = () => {
           </div>
         </motion.div>
       </section>
-
-
-      <OnSocials />
-
       <TestimonialSection />
 
       <NewsletterModal />

@@ -57,6 +57,7 @@ const CheckoutPage: React.FC = () => {
                 clearCart();
                 router.push(`/checkout/success?orderId=${data.id}`);
             },
+            //eslint-disable-next-line @typescript-eslint/no-explicit-any
             onError: (error: any) => {
                 toast.error("Failed to place order. Please try again.");
                 console.error(error);
@@ -69,7 +70,7 @@ const CheckoutPage: React.FC = () => {
             <div className="pt-40 pb-20 px-8 text-center max-w-lg mx-auto min-h-screen">
                 <h1 className="text-3xl font-serif mb-6">Your bag is empty</h1>
                 <p className="text-neutral-500 mb-10 leading-relaxed">
-                    It seems you haven't added any luxury pieces to your collection yet.
+                    It seems you haven&apos;t added any luxury pieces to your collection yet.
                 </p>
                 <Link
                     href="/collections"

@@ -4,6 +4,7 @@ import { Loader2, Upload } from "lucide-react";
 import { useUploadImage } from "@/hooks/use-images";
 
 interface UploadPaneProps {
+    //eslint-disable-next-line @typescript-eslint/no-explicit-any
     onUploadSuccess: (data: any, file: File) => void;
 }
 

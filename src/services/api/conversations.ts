@@ -1,7 +1,4 @@
-import {
-  WebhookNewMessageEvent,
-  SendMessageRequest,
-} from "@/types/conversations";
+import { SendMessageRequest } from "@/types/conversations";
 import { siteConfig } from "@/config/site";
 
 // Use the vapebox subdomain for all API calls
@@ -53,7 +50,7 @@ export const useConversationsApi = {
    */
   async getConversationMessages(conversationId: string) {
     const res = await fetch(
-      `${API_BASE_URL}/api/conversation-messages/${conversationId}`
+      `${API_BASE_URL}/api/conversation-messages/${conversationId}`,
     );
     return handleResponse(res);
   },
@@ -68,7 +65,7 @@ export const useConversationsApi = {
   async getPageAccessToken(pageId?: string): Promise<string> {
     try {
       const response = await fetch(
-        `${API_BASE_URL}/api/facebook` // ✅ use your backend API base
+        `${API_BASE_URL}/api/facebook`, // ✅ use your backend API base
       );
 
       const data = await response.json();
@@ -95,7 +92,7 @@ export const useConversationsApi = {
 
       if (!token) {
         throw new Error(
-          `No page access token found for page ${pageId || integration?.page_name}`
+          `No page access token found for page ${pageId || integration?.page_name}`,
         );
       }
 
@@ -107,7 +104,7 @@ export const useConversationsApi = {
   },
 
   async sendMessage(
-    data: SendMessageRequest & { conversationId: string; pageId?: string }
+    data: SendMessageRequest & { conversationId: string; pageId?: string },
   ) {
     const { conversationId, message, pageId, fileUpload, attachment } = data;
 
@@ -149,19 +146,19 @@ export const useConversationsApi = {
               is_reusable: true,
             },
           },
-        })
+        }),
       );
 
       formData.append("filedata", fileUpload);
 
       const response = await fetch(
         `https://graph.facebook.com/v17.0/me/messages?access_token=${encodeURIComponent(
-          pageAccessToken
+          pageAccessToken,
         )}`,
         {
           method: "POST",
           body: formData,
-        }
+        },
       );
 
       const result = await response.json();
@@ -201,13 +198,13 @@ export const useConversationsApi = {
 
     const response = await fetch(
       `https://graph.facebook.com/v17.0/me/messages?access_token=${encodeURIComponent(
-        pageAccessToken
+        pageAccessToken,
       )}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(messagePayload),
-      }
+      },
     );
 
     const result = await response.json();

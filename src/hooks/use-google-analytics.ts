@@ -1,7 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { googleAnalyticsApi } from "@/services/api/google-analytics";
 import {
-  GoogleAnalytics,
   CreateGoogleAnalyticsRequest,
   UpdateGoogleAnalyticsRequest,
 } from "@/types/google-analytics";

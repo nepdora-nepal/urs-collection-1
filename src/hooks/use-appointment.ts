@@ -25,7 +25,7 @@ export const useGetAppointmentReasons = () => {
 };
 
 // Submit appointment form (for public-facing form)
-export const useSubmitAppointmentForm = (siteUser: string) => {
+export const useSubmitAppointmentForm = () => {
   const queryClient = useQueryClient();
 
   return useMutation({

@@ -1,10 +1,10 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { contactAPI } from "@/services/api/contact";
 import {
   ContactFormData,
   PaginatedContacts,
   ContactFilters,
-  ContactFormSubmission
+  ContactFormSubmission,
 } from "@/types/contact";
 import { toast } from "sonner";
 
@@ -15,7 +15,7 @@ export const useGetContacts = (filters: ContactFilters = {}) => {
   });
 };
 
-export const useSubmitContactForm = (siteUser: string) => {
+export const useSubmitContactForm = () => {
   return useMutation({
     mutationFn: (data: ContactFormSubmission) => {
       // Transform ContactFormSubmission to ContactFormData format
@@ -28,11 +28,11 @@ export const useSubmitContactForm = (siteUser: string) => {
 
       return contactAPI.createContact(contactData);
     },
-    onSuccess: data => {
+    onSuccess: (data) => {
       toast.success(data.message);
       console.log("Contact form submitted successfully:", data);
     },
-    onError: error => {
+    onError: (error) => {
       toast.error("Failed to submit contact form");
       console.error("Failed to submit contact form:", error);
     },

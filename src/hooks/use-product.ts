@@ -7,7 +7,6 @@ import { toast } from "sonner";
 import {
   CreateProductRequest,
   UpdateProductRequest,
-  PaginationParams,
 } from "@/types/product";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useMemo } from "react";

@@ -8,7 +8,7 @@ import {
   AuthTokens,
   DecodedAccessToken,
 } from "@/types/auth/customer/auth";
-import { loginUser, signupUser } from "@/services/auth/customer/api";
+import { loginUser } from "@/services/auth/customer/api";
 import { toast } from "sonner";
 
 interface AuthContextType {
@@ -158,6 +158,7 @@ export const CustomerPublishAuthProvider = ({
     try {
       return page === "home";
     } catch (error) {
+      console.error("Error checking page existence:", error);
       return false;
     }
   };
@@ -301,7 +302,6 @@ export const CustomerPublishAuthProvider = ({
 
       delete signupData.confirmPassword;
 
-      const response = await signupUser(signupData);
 
       // Don't auto-login after signup, just redirect to login page
       toast.success("Account created successfully! Please log in to continue.");
