@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Check, ArrowRight, ShoppingBag } from 'lucide-react';
 
-export const SuccessSection: React.FC = () => {
+export default function SuccessSection() {
     const searchParams = useSearchParams();
     const orderId = searchParams.get('orderId');
     const router = useRouter();

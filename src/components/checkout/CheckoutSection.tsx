@@ -5,12 +5,12 @@ import { useCart } from '@/hooks/use-cart';
 import { useCreateOrder } from '@/hooks/use-orders';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
-import ImageWithFallback from '@/components/common/ImageWithFallback';
 import { images } from '@/services/image-loader';
 import { ArrowLeft, Loader2, ChevronRight, ShieldCheck } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
-export const CheckoutSection: React.FC = () => {
+export default function CheckoutSection() {
     const { cartItems, totalPrice, clearCart } = useCart();
     const { mutate: createOrder, isPending } = useCreateOrder();
     const router = useRouter();
@@ -218,16 +218,15 @@ export const CheckoutSection: React.FC = () => {
                         <div className="space-y-6 max-h-[400px] overflow-y-auto pr-2 scrollbar-thin">
                             {cartItems.map((item) => (
                                 <div key={`${item.product.id}-${item.selectedVariant?.id || 'none'}`} className="flex gap-4">
-                                    <div className="relative w-16 h-20 bg-white rounded-sm overflow-hidden flex-shrink-0 border border-neutral-100">
-                                        <ImageWithFallback
+                                    <div className="relative w-16 h-20 z-50 rounded-sm overflow-hidden flex-shrink-0 border border-neutral-100">
+                                        <Image
                                             id={`checkout-item-${item.product.id}`}
                                             src={item.product.thumbnail_image || images.category1}
-                                            fallbackSrc={images.category1}
                                             alt={item.product.name}
                                             fill
                                             className="object-contain p-2 mix-blend-multiply"
                                         />
-                                        <span className="absolute -top-1 -right-1 bg-black text-white text-[9px] w-4 h-4 flex items-center justify-center rounded-full font-bold">
+                                        <span className="absolute -top-2 -right-2 bg-black text-white text-[9px] w-4 h-4 flex items-center z-50 justify-center rounded-full font-bold">
                                             {item.quantity}
                                         </span>
                                     </div>

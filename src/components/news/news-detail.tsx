@@ -11,7 +11,7 @@ interface NewsDetailProps {
     slug: string;
 }
 
-const NewsDetail: React.FC<NewsDetailProps> = ({ slug }) => {
+export default function NewsDetail({ slug }: NewsDetailProps) {
     const { data: blog, isLoading, isError } = useBlog(slug);
 
     if (isLoading) {
@@ -49,4 +49,3 @@ const NewsDetail: React.FC<NewsDetailProps> = ({ slug }) => {
     );
 };
 
-export default NewsDetail;

@@ -5,7 +5,7 @@ import { MessageCircle } from "lucide-react";
 import { useWhatsApps } from "@/hooks/use-whatsapp";
 import { motion, AnimatePresence } from "framer-motion";
 
-export const WhatsAppButton: React.FC = () => {
+export default function WhatsAppButton() {
     const { data: whatsapps, isLoading } = useWhatsApps();
 
     // Find the first active WhatsApp config

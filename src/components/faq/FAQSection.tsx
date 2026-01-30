@@ -12,7 +12,7 @@ import {
 import { Skeleton } from '@/components/ui/skeleton';
 import { FAQ } from '@/types/faq';
 
-export const FAQSection: React.FC = () => {
+export default function FAQSection() {
     const { data: faqs, isLoading } = useFAQs();
 
     if (isLoading) {

@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
-import { SuccessSection } from '@/components/checkout/SuccessSection';
+import SuccessSection from '@/components/checkout/SuccessSection';
 
-const SuccessPage = () => {
+ export default function SuccessPage() {
     return (
         <Suspense fallback={
             <div className="flex items-center justify-center h-screen">
@@ -13,4 +13,3 @@ const SuccessPage = () => {
     );
 };
 
-export default SuccessPage;

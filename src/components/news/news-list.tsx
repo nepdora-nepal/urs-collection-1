@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 
-const NewsList: React.FC = () => {
+export default function NewsList() {
     const { data: blogsData, isLoading } = useBlogs();
     const blogs = blogsData?.results || [];
 
@@ -89,4 +89,3 @@ const NewsList: React.FC = () => {
     );
 };
 
-export default NewsList;

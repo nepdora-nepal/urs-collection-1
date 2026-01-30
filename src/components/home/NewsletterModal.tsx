@@ -10,7 +10,7 @@ import ImageWithFallback from '@/components/common/ImageWithFallback';
 import { images } from '@/services/image-loader';
 
 
-export const NewsletterModal: React.FC = () => {
+export default function NewsletterModal() {
     const [isOpen, setIsOpen] = useState(false);
     const [email, setEmail] = useState('');
     const { mutate: createNewsletter, isPending } = useCreateNewsletter();

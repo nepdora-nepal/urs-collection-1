@@ -4,18 +4,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Hero from '@/components/home/Hero';
-import { CategoryGrid } from '@/components/home/CategoryGrid';
+import CategoryGrid from '@/components/home/CategoryGrid';
 import Link from 'next/link';
 import ImageWithFallback from '@/components/common/ImageWithFallback';
 import { images } from '@/services/image-loader';
-import { NewsletterModal } from '@/components/home/NewsletterModal';
-import { TestimonialSection } from '@/components/home/TestimonialSection';
-import { FeaturedProducts } from '@/components/home/FeaturedProducts';
-import { PopularProducts } from '@/components/home/PopularProducts';
-import { FAQSection } from '@/components/faq/FAQSection';
+import NewsletterModal from '@/components/home/NewsletterModal';
+import TestimonialSection from '@/components/home/TestimonialSection';
+import FeaturedProducts from '@/components/home/FeaturedProducts';
+import PopularProducts from '@/components/home/PopularProducts';
+import FAQSection from '@/components/faq/FAQSection';
 import ContactSection from '@/components/contact/ContactSection';
 
-const HomePage: React.FC = () => {
+export default function HomePage() {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -54,7 +54,7 @@ const HomePage: React.FC = () => {
           className="relative z-10 text-center text-white px-6"
         >
           <h2 className="text-6xl md:text-8xl  mb-10 leading-[1.1]">
-            Dressed in Time, <br /> <span className="italic font-normal">Not Trends</span>
+            Dressed in Time, <br /> <span className=" font-normal">Not Trends</span>
           </h2>
           <div className="flex justify-center space-x-6">
             <Link href="/collections">
@@ -86,4 +86,3 @@ const HomePage: React.FC = () => {
   );
 };
 
-export default HomePage;

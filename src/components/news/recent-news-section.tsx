@@ -13,11 +13,11 @@ interface RecentBlogsSectionProps {
     isLoading?: boolean;
 }
 
-const RecentBlogsSection: React.FC<RecentBlogsSectionProps> = ({
+export default function RecentBlogsSection({
     currentBlogId,
     recentBlogs: initialBlogs,
     isLoading: initialLoading,
-}) => {
+}: RecentBlogsSectionProps) {
     const { data: hookBlogs, isLoading: hookLoading } = useRecentBlogs();
     const blogs = initialBlogs || hookBlogs || [];
     const isLoading = initialLoading || hookLoading;
@@ -107,5 +107,3 @@ const RecentBlogsSection: React.FC<RecentBlogsSectionProps> = ({
         </div>
     );
 };
-
-export default RecentBlogsSection;

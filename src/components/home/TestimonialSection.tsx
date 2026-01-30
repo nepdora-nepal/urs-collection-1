@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { Quote } from 'lucide-react';
 import Image from 'next/image';
 
-export const TestimonialSection: React.FC = () => {
+export default function TestimonialSection() {
     const { data: testimonials, isLoading } = useTestimonials();
 
     if (isLoading || !testimonials || testimonials.length === 0) return null;

@@ -1,6 +1,6 @@
 import React from 'react';
 import ContactSection from '@/components/contact/ContactSection';
-import { FAQSection } from '@/components/faq/FAQSection';
+import FAQSection from '@/components/faq/FAQSection';
 
 
 const ContactPage = () => {

@@ -12,7 +12,7 @@ interface BlogDetailContentProps {
     blog: BlogPost;
 }
 
-const BlogDetailContent: React.FC<BlogDetailContentProps> = ({ blog }) => {
+export default function BlogDetailContent({ blog }: BlogDetailContentProps) {
     return (
         <article className="max-w-5xl mx-auto px-10">
             {/* Breadcrumbs & Category */}
@@ -98,5 +98,3 @@ const BlogDetailContent: React.FC<BlogDetailContentProps> = ({ blog }) => {
         </article>
     );
 };
-
-export default BlogDetailContent;

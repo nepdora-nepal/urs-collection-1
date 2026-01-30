@@ -1,8 +1,5 @@
-import React from 'react';
-import { CheckoutSection } from '@/components/checkout/CheckoutSection';
+import CheckoutSection from '@/components/checkout/CheckoutSection';
 
-const CheckoutPage = () => {
+export default function CheckoutPage() {
     return <CheckoutSection />;
 };
-
-export default CheckoutPage;

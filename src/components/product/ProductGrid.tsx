@@ -22,14 +22,14 @@ interface ProductGridProps {
     isPopular?: boolean;
 }
 
-export const ProductGrid: React.FC<ProductGridProps> = ({
+export  default function ProductGrid({
     title = "Featured Products",
     subtitle,
     category,
     limit = 4,
     isFeatured,
     isPopular
-}) => {
+}: ProductGridProps) {
     const { data: productsData, isLoading, error } = useProducts({
         category: category,
         page_size: limit,

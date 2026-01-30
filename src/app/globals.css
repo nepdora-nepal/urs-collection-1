@@ -18,7 +18,7 @@
   --popover-foreground: 0 0% 10.1961%;
   --primary: 172.5000 100% 7.8431%;
   --primary-foreground: 0 0% 100%;
-  --secondary: #9b2c2c ;
+  --secondary: hsl(0, 56%, 39%);
   --secondary-foreground: 0 0% 96.8627%;
   --muted: 22.5000 21.0526% 92.5490%;
   --muted-foreground: 33.3333 5.4545% 32.3529%;

@@ -13,7 +13,7 @@ interface ProductPageProps {
     product: Product;
 }
 
-const ProductPage: React.FC<ProductPageProps> = ({ product }) => {
+export const ProductPage: React.FC<ProductPageProps> = ({ product }) => {
     const [quantity, setQuantity] = useState(1);
     const [openAccordion, setOpenAccordion] = useState<string | null>('description');
     const { addToCart, setIsCartOpen } = useCart();

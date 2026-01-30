@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { Search, ShoppingBag } from "lucide-react";
 import { useCart } from "@/hooks/use-cart";
 
-export const Navbar: React.FC = () => {
+export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const pathname = usePathname();
     const isHomePage = pathname === "/";
@@ -36,7 +36,7 @@ export const Navbar: React.FC = () => {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 ${navBg} ${navTextColor}`}
         >
-            <div className="max-w-[1800px] mx-auto px-8 md:px-12 flex items-center justify-between">
+            <div className="max-w-7xl mx-auto px-8 md:px-12 flex items-center justify-between">
                 {/* Logo */}
                 <Link
                     href="/"
@@ -46,7 +46,7 @@ export const Navbar: React.FC = () => {
                 </Link>
 
                 {/* Desktop Menu */}
-                <div className="hidden lg:flex items-center space-x-12 text-[10px]  tracking-[0.3em] font-medium">
+                <div className="hidden lg:flex items-center space-x-12 text-lg   font-medium">
                     {["Home", "About", "Collections", "News", "Contact"].map((item) => (
                         <Link
                             key={item}

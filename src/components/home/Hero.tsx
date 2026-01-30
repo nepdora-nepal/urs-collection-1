@@ -7,6 +7,7 @@ import ImageWithFallback from '@/components/common/ImageWithFallback';
 import { images } from '@/services/image-loader';
 import { ChevronRight } from 'lucide-react';
 import Link from 'next/link';
+
 export default function Hero() {
     return (
         <div className="relative h-screen w-full overflow-hidden bg-neutral-950">

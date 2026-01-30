@@ -6,10 +6,10 @@ import { cn } from "@/lib/utils";
 import { QueryProvider } from "@/components/providers/query-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { CartProvider } from "@/contexts/CartContext";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 import CartDrawer from "@/components/cart/CartDrawer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import  WhatsAppButton  from "@/components/layout/WhatsAppButton";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
