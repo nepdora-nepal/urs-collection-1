@@ -60,7 +60,7 @@ export default function CategoryGrid() {
               </div>
               <div className="space-y-2">
                 <h3 className="text-2xl ">{cat.name}</h3>
-                <p className="text-[10px]  tracking-[0.3em] text-neutral-400 group-hover:text-black transition-colors duration-500">
+                <p className="text-[10px]   text-neutral-400 group-hover:text-black transition-colors duration-500">
                   Discover Collection
                 </p>
               </div>
